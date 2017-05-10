@@ -16,11 +16,18 @@ function guess() {
 
     if(getResults(input.value)){
       setMessage("You Win! :)");
+      showAnswer(true);
+      showReplay();
     } else if (attempt.value >= 10) {
       setMessage("You Lose! :(");
+      showAnswer(false);
+      showReplay();
     } else {
       setMessage("Incorrect, try again.");
     }
+
+
+
 }
 
 //implement new functions here
@@ -66,13 +73,17 @@ function getResults(input){
   return false;
 }
 
-function showAnswer(it, true, false) {
-  document.getElementById('code').innerHTML = answer.value;
-  if(it == true){
-        document.getElementById('className').innerHTML = "success";
+function showAnswer(success) {
+  let code = document.getElementById('code');
+  if(success == true){
+        code.'className' += "success";
   } else {
-    document.getElementById('className').innerHTML = "failure";
+    code.'className' += "failure";
   }
+  code.innterHTML = answer.value;
 }
 
-function
+function showReplay(){
+  document.getElementById('guessing-div').style.display  = 'none';
+  document.getElementById('replay-div').style.display  = 'block';
+}
