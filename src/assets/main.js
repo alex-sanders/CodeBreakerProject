@@ -10,8 +10,16 @@ function guess() {
 
     if (validateInput(input.value) !== true){
       return;
+    }
+
+    attempt.value++;
+
+    if(getResults(input.value)){
+      setMessage("You Win! :)");
+    } else if (attempt.value >= 10) {
+      setMessage("You Lose! :(");
     } else {
-      attempt.value++;
+      setMessage("Incorrect, try again.");
     }
 }
 
@@ -48,4 +56,23 @@ function getResults(input){
             html+='<span class="glyphicon glyphicon-remove"></span>';
           }
   }
+  html+='<div></div>';
+  document.getElementById('results').innerHTML += html;
+  var count = count(answer.value.indexOf(input.charAt(i) > -1);
+
+  if (input == answer.value){
+    return true;
+  }
+  return false;
 }
+
+function showAnswer(it, true, false) {
+  document.getElementById('code').innerHTML = answer.value;
+  if(it == true){
+        document.getElementById('className').innerHTML = "success";
+  } else {
+    document.getElementById('className').innerHTML = "failure";
+  }
+}
+
+function
